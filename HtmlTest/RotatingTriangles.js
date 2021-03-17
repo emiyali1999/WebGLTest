@@ -70,7 +70,7 @@ function main(){
 
 function initVertexBuffers(gl){
 	var vertices = new Float32Array(
-		[0.0,0.5,-0.5,-0.5,0.5,-0.5]
+		[0.0,0.67,-0.5,-0.33,0.5,-0.33]
 		);
 	var n = 3;//顶点数量
 	
@@ -101,6 +101,7 @@ function initVertexBuffers(gl){
 function draw(gl,n,currentAngle,modelMatrix,u_ModelMatrix){
 	//设置旋转矩阵
 	modelMatrix.setRotate(currentAngle,0,0,1);
+	modelMatrix.translate(0.5,0,0);
 	//将旋转矩阵传给顶点着色器
 	gl.uniformMatrix4fv(u_ModelMatrix,false,modelMatrix.elements);
 	//清除canvas
